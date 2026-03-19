@@ -1,44 +1,40 @@
 # Nerve 📡
 
-**Nerve** は、システム全体のコンディション（CPU・GPU・メモリ・ネットワーク）を直感的に監視するための、リアルタイム専用ターミナル・モニタリングツールです。
+**Nerve** is a real-time, terminal-based system monitoring tool designed to intuitively visualize your entire system's condition (CPU, GPU, Memory, and Network).
 
-「画面の端に置いて、常にシステムの変化を感じる」ことをコンセプトに作られています。重いUIライブラリを使わず、ネイティブなANSIエスケープシーケンスとWindows Performance Countersを利用することで、**表示の美麗さと超軽量な動作（50 FPSの滑らかな更新）**を両立させています。
+Built around the concept of "keeping it at the edge of your screen to feel system changes," Nerve avoids heavy UI libraries. By utilizing native ANSI escape sequences and Windows Performance Counters, it achieves a perfect balance of **beautiful visuals and ultra-lightweight performance (smooth 50 FPS updates)**.
 
-## 特徴 🚀
+## Features 🚀
+- **🔥 Smooth Animations**: Applies Exponential Smoothing to raw metrics, resulting in incredibly fluid (50 FPS) indicator movements.
+- **📊 Granular Independent Bars**: Uses square blocks (■) for progress bars to achieve a clean, sophisticated look in the terminal. An average line (│) is overlaid for quick reference.
+- **🌊 Network Waveforms**: Renders streaming traffic history as a beautiful line chart using Braille characters.
+- **🎮 Native GPU Support**: Uses `win32pdh` to accurately and lightly measure Windows "GPU Engine 3D" utilization across any vendor (Intel / AMD / NVIDIA), including integrated graphics.
+- **💤 Auto-IDLE Detection**: When system load and network traffic remain consistently low, the UI automatically shifts into a subdued `[ IDLE ]` theme.
+- **🚨 Spike Detection**: Automatically logs sudden spikes in system load or network bursts. (Logs fade out smoothly to black 3 seconds after appearing).
+- **💻 Standalone Executable**: Compiled into a single binary via PyInstaller. No environment setup is required—it runs instantly.
 
-- **🔥 スムーズなアニメーション**: 取得した値に対して指数加重移動平均（Exponential Smoothing）を適用し、インジケーターが信じられないほど滑らか（50FPS）に動きます。
-- **📊 独立した細密バー**: プログレスバーには四角ブロック（■）を使用し、ターミナル上でも見やすく洗練された見た目を実現。平均ライン（│）もオーバーレイで表示されます。
-- **🌊 ネットワーク波形**: トラフィックの履歴を点字（Braille）ベースの美しいラインチャートで流れるように描画。
-- **🎮 GPUネイティブ対応**: `win32pdh` を用い、Windowsの「GPUエンジン 3D」の利用率をベンダー問わず（Intel / AMD / NVIDIA）正確かつ軽量に計測可能。
-- **💤 自動IDLE検知**: マシンの通信や負荷が低い状態が続くと、テーマが自動的に`[ IDLE ]`モードに切り替わり、画面のトーンが落ち着きます。
-- **🚨 異常スパイク検知**: 急激な負荷上昇や通信量の跳ね上がりを検知すると、イベントログに自動で記録。（表示から3秒後に自動的に黒くフェードアウトして消えます）
-- **💻 スタンドアロン実行**: PyInstallerによってビルドされた単一の実行ファイルのため、環境構築不要で瞬時に動作します。
+## Installation & Usage 💻
 
-## インストールと実行方法
-
-グローバルコマンドとして実行可能です：
+Run it as a global command from any terminal:
 
 ```powershell
-# どこからでもNerveを起動
+# Launch Nerve from anywhere
 nerve
 ```
 
-> **Note**: VSCodeの分割ターミナルなど、横長環境での表示に最適化されています。終了するには `Ctrl + C` を押してください。
+> **Note**: Nerve is optimized for a horizontal layout (like a split terminal in VSCode). Press `Ctrl + C` to exit.
 
-## 開発環境 (ローカルビルド)
-
-Python 3.11 環境でビルドする際は以下を実行します。
+## Development (Local Build)
+To build Nerve locally on a Python 3.11 environment:
 
 ```powershell
 pip install -e .
 pyinstaller --onefile nerve.py
 ```
 
-## 動作要件 ⚙️
-
+## System Requirements ⚙️
 - Windows 10 / 11
-- (_Python 3.10 以上 または `nerve.exe` の直利用_)
+- (*Python 3.10+ or simply use the compiled `nerve.exe`*)
 
 ---
-
 `// yyy was here.`
