@@ -175,10 +175,16 @@ def render_frame(metrics_data, term_width, term_height):
                 age = curr_time - event['time']
                 alpha = 1.0 if age < 3.0 else max(0.0, 1.0 - (age - 3.0) / 3.0)
                 
-                if event['is_spike']:
+                severity = event.get('severity', 'low')
+                if severity == 'high':
                     r, g, b = fade_color(255, 50, 50, alpha)
+                elif severity == 'mid':
+                    r, g, b = fade_color(255, 200, 50, alpha)
+                elif severity == 'low':
+                    r, g, b = fade_color(50, 200, 255, alpha)
                 else:
-                    r, g, b = fade_color(200, 200, 200, alpha)
+                    if event.get('is_spike'): r, g, b = fade_color(255, 50, 50, alpha)
+                    else: r, g, b = fade_color(200, 200, 200, alpha)
                     
                 lines.append(f"  \033[38;2;{r};{g};{b}m{event['text']}\033[0m\033[K")
                 

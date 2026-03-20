@@ -88,12 +88,12 @@
    'C:\\Program '
    'Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\\DLLs\\libffi-8.dll',
    'BINARY'),
-  ('pywin32_system32\\pywintypes311.dll',
-   'c:\\Users\\ussi9\\Downloads\\app2\\.venv\\Lib\\site-packages\\pywin32_system32\\pywintypes311.dll',
-   'BINARY'),
   ('VCRUNTIME140_1.dll',
    'C:\\Program '
    'Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\\VCRUNTIME140_1.dll',
+   'BINARY'),
+  ('pywin32_system32\\pywintypes311.dll',
+   'c:\\Users\\ussi9\\Downloads\\app2\\.venv\\Lib\\site-packages\\pywin32_system32\\pywintypes311.dll',
    'BINARY'),
   ('python3.dll',
    'C:\\Program '

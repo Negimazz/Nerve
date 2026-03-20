@@ -1,7 +1,7 @@
 import os
 import sys
 import time
-from metrics import SystemMetrics
+from state import SystemState
 from ui import render_frame
 
 def print_startup_sequence():
@@ -36,11 +36,12 @@ def print_startup_sequence():
     time.sleep(0.8)
 
 def main():
-    metrics = SystemMetrics()
     os.system("") # enable ANSI escape sequences on windows terminal
     
     # Enter alt screen buffer and hide cursor
     print('\033[?1049h\033[?25l', end="")
+    
+    metrics = SystemState()
     
     try:
         print_startup_sequence()
@@ -72,8 +73,10 @@ def main():
             sys.stdout.write(frame)
             sys.stdout.flush()
             
-            # Update at ~50 FPS
-            time.sleep(0.02)
+            # Dynamic FPS
+            is_idle = data.get('is_idle', False)
+            fps = 10 if is_idle else 30
+            time.sleep(1.0 / fps)
             
     except KeyboardInterrupt:
         pass
